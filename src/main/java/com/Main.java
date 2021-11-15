@@ -9,20 +9,23 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
-        //test
+
         Scanner in = new Scanner(System.in);
         int m, n;
         System.out.println("Enter the number " + "of rows of the matrix");
         m = in.nextInt();
         System.out.println("Enter the number " + "of columns of the matrix");
         n = in.nextInt();
+        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+        MatrixCalculator matrix = (MatrixCalculator) context.getBean("calculator");
 
-        MatrixCalculator matrix = new MatrixCalculator();
+        //MatrixCalculator matrix = new MatrixCalculator();
         int[][] a = matrix.generateRandomMatrix(n, m);
         int[][] b = matrix.generateRandomMatrix(n, m);
 
 
-        MatrixPrinter printer = new MatrixPrinter();
+        //MatrixPrinter printer = new MatrixPrinter();
+        MatrixPrinter printer = (MatrixPrinter) context.getBean("printer");
         printer.printMatrix(a, n, m);
         System.out.print("\n");
         printer.printMatrix(b, n, m);

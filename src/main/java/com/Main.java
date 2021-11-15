@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Component;
 
 
 public class Main {
@@ -16,16 +17,26 @@ public class Main {
         m = in.nextInt();
         System.out.println("Enter the number " + "of columns of the matrix");
         n = in.nextInt();
-        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-        MatrixCalculator matrix = (MatrixCalculator) context.getBean("calculator");
 
-        //MatrixCalculator matrix = new MatrixCalculator();
+
+        // ApplicationContext context = new AnnotationConfigApplicationContext(AccountConfig.class);
+        //ApplicationContext context =  new ClassPathXmlApplicationContext("Beans.xml");
+        //  MatrixCalculator matrix = (MatrixCalculator) context.getBean("calculator");
+        // MatrixPrinter printer = (MatrixPrinter) context.getBean("printer");
+
+        ApplicationContext context = new ClassPathXmlApplicationContext("AnnotationsBeans.xml");
+        MatrixCalculator matrix = context.getBean(MatrixCalculator.class);
+
+
+
+
         int[][] a = matrix.generateRandomMatrix(n, m);
         int[][] b = matrix.generateRandomMatrix(n, m);
 
 
-        //MatrixPrinter printer = new MatrixPrinter();
-        MatrixPrinter printer = (MatrixPrinter) context.getBean("printer");
+
+        MatrixPrinter printer = context.getBean(MatrixPrinter.class);
+
         printer.printMatrix(a, n, m);
         System.out.print("\n");
         printer.printMatrix(b, n, m);

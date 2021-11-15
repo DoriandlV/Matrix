@@ -1,8 +1,12 @@
 package com;
 
-import java.util.Random;
 
+import org.springframework.stereotype.Component;
+
+import java.util.Random;
+@Component
 public class MatrixCalculator {
+
 
     public int[][] generateRandomMatrix(int rowSize ,int colSize ){
         Random r=new Random();
@@ -18,7 +22,7 @@ public class MatrixCalculator {
         }
         return matrix;
     }
-    
+
     public  int [][] sum (int a[][],int b[][]){
         int row = a.length;
         int column= a[0].length;

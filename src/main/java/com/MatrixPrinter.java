@@ -2,6 +2,9 @@ package com;
 
 import com.MatrixCalculator;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class MatrixPrinter {
 
     public void printMatrix(int M[][], int rowSize, int colSize) {

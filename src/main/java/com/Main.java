@@ -9,6 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
+        //test
         Scanner in = new Scanner(System.in);
         int m, n;
         System.out.println("Enter the number " + "of rows of the matrix");

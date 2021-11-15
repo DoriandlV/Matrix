@@ -1,19 +1,19 @@
 package com;
 
 import com.MatrixCalculator;
-
 import java.util.Scanner;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 public class Main {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int m, n;
-        System.out.println("Enter the number "
-                + "of rows of the matrix");
+        System.out.println("Enter the number " + "of rows of the matrix");
         m = in.nextInt();
-        System.out.println("Enter the number "
-                + "of columns of the matrix");
+        System.out.println("Enter the number " + "of columns of the matrix");
         n = in.nextInt();
 
         MatrixCalculator matrix = new MatrixCalculator();

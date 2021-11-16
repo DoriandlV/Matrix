@@ -1,12 +1,13 @@
 package com;
 
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import java.util.Random;
 @Component
 public class MatrixCalculator {
-
 
     public int[][] generateRandomMatrix(int rowSize ,int colSize ){
         Random r=new Random();

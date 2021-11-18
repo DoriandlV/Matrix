@@ -18,6 +18,10 @@ public class Main {
         MatrixCalculator matrix = context.getBean(MatrixCalculator.class);
         ConfigMatrix config = context.getBean(ConfigMatrix.class);
         MatrixPrinter printer = context.getBean(MatrixPrinter.class);
+        // ApplicationContext context =  new ClassPathXmlApplicationContext("Beans.xml");
+        // ApplicationContext context = new ClassPathXmlApplicationContext("AnnotationsBeans.xml");
+        //  MatrixCalculator matrix = (MatrixCalculator) context.getBean("calculator");
+        // MatrixPrinter printer = (MatrixPrinter) context.getBean("printer");
 
         Scanner in = new Scanner(System.in);
         int m, n;
@@ -27,16 +31,6 @@ public class Main {
         //  m = in.nextInt();
        // System.out.println("Enter the number " + "of columns of the matrix");
        // n = in.nextInt();
-
-
-        //ApplicationContext context =  new ClassPathXmlApplicationContext("Beans.xml");
-        //  MatrixCalculator matrix = (MatrixCalculator) context.getBean("calculator");
-        // MatrixPrinter printer = (MatrixPrinter) context.getBean("printer");
-        // ApplicationContext context = new ClassPathXmlApplicationContext("AnnotationsBeans.xml");
-
-
-
-
 
         int[][] a = matrix.generateRandomMatrix(n, m);
         int[][] b = matrix.generateRandomMatrix(n, m);

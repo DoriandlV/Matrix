@@ -12,33 +12,36 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
 
-    @Autowired
-    private MatrixCalculator matrixBean;
-    @Autowired
-    private MatrixPrinter printerMatrix;
-
     public static void main(String[] args) {
+
+        ApplicationContext context = new AnnotationConfigApplicationContext("com");
+        MatrixCalculator matrix = context.getBean(MatrixCalculator.class);
+        ConfigMatrix config = context.getBean(ConfigMatrix.class);
+        MatrixPrinter printer = context.getBean(MatrixPrinter.class);
 
         Scanner in = new Scanner(System.in);
         int m, n;
-        System.out.println("Enter the number " + "of rows of the matrix");
-        m = in.nextInt();
-        System.out.println("Enter the number " + "of columns of the matrix");
-        n = in.nextInt();
+        m = config.getRow();
+        n = config.getColumn();
+        //  System.out.println("Enter the number " + "of rows of the matrix");
+        //  m = in.nextInt();
+       // System.out.println("Enter the number " + "of columns of the matrix");
+       // n = in.nextInt();
 
 
         //ApplicationContext context =  new ClassPathXmlApplicationContext("Beans.xml");
         //  MatrixCalculator matrix = (MatrixCalculator) context.getBean("calculator");
         // MatrixPrinter printer = (MatrixPrinter) context.getBean("printer");
-        ApplicationContext context = new AnnotationConfigApplicationContext("com");
-       // ApplicationContext context = new ClassPathXmlApplicationContext("AnnotationsBeans.xml");
-        MatrixCalculator matrix = context.getBean(MatrixCalculator.class);
+        // ApplicationContext context = new ClassPathXmlApplicationContext("AnnotationsBeans.xml");
+
+
+
 
 
         int[][] a = matrix.generateRandomMatrix(n, m);
         int[][] b = matrix.generateRandomMatrix(n, m);
 
-        MatrixPrinter printer = context.getBean(MatrixPrinter.class);
+
 
         printer.printMatrix(a, n, m);
         System.out.print("\n");

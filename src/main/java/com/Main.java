@@ -1,12 +1,9 @@
 package com;
 
-import com.MatrixCalculator;
-import java.util.Scanner;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.Scanner;
 
 
 public class Main {
@@ -18,10 +15,10 @@ public class Main {
         MatrixCalculator matrix = context.getBean(MatrixCalculator.class);
         ConfigMatrix config = context.getBean(ConfigMatrix.class);
         MatrixPrinter printer = context.getBean(MatrixPrinter.class);
-        // ApplicationContext context =  new ClassPathXmlApplicationContext("Beans.xml");
-        // ApplicationContext context = new ClassPathXmlApplicationContext("AnnotationsBeans.xml");
+        //  ApplicationContext context =  new ClassPathXmlApplicationContext("Beans.xml");
+        //  ApplicationContext context = new ClassPathXmlApplicationContext("AnnotationsBeans.xml");
         //  MatrixCalculator matrix = (MatrixCalculator) context.getBean("calculator");
-        // MatrixPrinter printer = (MatrixPrinter) context.getBean("printer");
+        //  MatrixPrinter printer = (MatrixPrinter) context.getBean("printer");
 
         Scanner in = new Scanner(System.in);
         int m, n;
@@ -29,12 +26,11 @@ public class Main {
         n = config.getColumn();
         //  System.out.println("Enter the number " + "of rows of the matrix");
         //  m = in.nextInt();
-       // System.out.println("Enter the number " + "of columns of the matrix");
-       // n = in.nextInt();
+        // System.out.println("Enter the number " + "of columns of the matrix");
+        // n = in.nextInt();
 
         int[][] a = matrix.generateRandomMatrix(n, m);
         int[][] b = matrix.generateRandomMatrix(n, m);
-
 
 
         printer.printMatrix(a, n, m);
